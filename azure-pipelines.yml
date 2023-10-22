@@ -1,0 +1,23 @@
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- name: Deploykubemanifests
+  value: kube  
+
+stages:
+  - stage: Deploy
+    displayName: Deploy stage
+    jobs:
+      - job: Deploykubemanifests
+        steps:
+          
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(System.DefaultWorkingDirectory)/kube-manifests/02-Java-Apps/'
+              artifact: 'manifests-02-Java-Apps'
+              publishLocation: 'pipeline'
