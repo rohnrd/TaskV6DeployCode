@@ -18,6 +18,6 @@ stages:
           
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(System.DefaultWorkingDirectory)/kube-manifests/02-Java-Apps/'
+              targetPath: '$(System.DefaultWorkingDirectory)'
               artifact: 'manifests-02-Java-Apps'
               publishLocation: 'pipeline'
